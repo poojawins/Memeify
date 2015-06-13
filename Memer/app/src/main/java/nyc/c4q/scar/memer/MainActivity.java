@@ -7,13 +7,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.view.View;
 import android.widget.ImageButton;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private TextToSpeech t1;
     private Intent intent;
     private Uri imageFileUri;
