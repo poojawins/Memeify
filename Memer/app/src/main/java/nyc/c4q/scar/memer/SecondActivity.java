@@ -45,9 +45,10 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
     private SharedPreferences preferences = null;
     private EditText top, bottom, big, small;
     private String string1, string2;
+    private Button redTextColor;
+    private Button blueTextColor;
+    private Button whiteTextColor;
 
-    //Quick added features
-    private Button colorChange, colorChange2;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -75,127 +76,30 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
         top.setMovementMethod(null);
         bottom.setMovementMethod(null);
 
-        //added this feature last minute.
-        colorChange = (Button) findViewById(R.id.change_color_text_id);
-
-        colorChange.setOnClickListener(new View.OnClickListener() {
+        // Change Text Color
+        redTextColor = (Button) findViewById(R.id.text_color_red);
+        redTextColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                big.setTextColor(Color.RED);
-                small.setTextColor(Color.RED);
-                top.setTextColor(Color.RED);
-                bottom.setTextColor(Color.RED);
-
-                if (isVanilla) {
-                    string1 = top.getText().toString();
-                    string2 = bottom.getText().toString();
-
-                    big.setTextColor(Color.RED);
-                    small.setTextColor(Color.RED);
-                    top.setTextColor(Color.RED);
-                    bottom.setTextColor(Color.RED);
-
-                    big.setText(string1);
-                    small.setText(string2);
-                    isVanilla = !isVanilla;
-                } else {
-                    string1 = big.getText().toString();
-                    string2 = small.getText().toString();
-
-                    big.setTextColor(Color.RED);
-                    small.setTextColor(Color.RED);
-                    top.setTextColor(Color.RED);
-                    bottom.setTextColor(Color.RED);
-
-                    top.setText(string1);
-                    bottom.setText(string2);
-                    isVanilla = true;
-                }
-
+                changeTextColor("#FF0000");
             }
         });
 
-        colorChange2 = (Button) findViewById(R.id.change_color_text_id2);
-
-        colorChange2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                big.setTextColor(Color.BLUE);
-                small.setTextColor(Color.BLUE);
-                top.setTextColor(Color.BLUE);
-                bottom.setTextColor(Color.BLUE);
-
-                if (isVanilla) {
-                    string1 = top.getText().toString();
-                    string2 = bottom.getText().toString();
-
-                    big.setTextColor(Color.BLUE);
-                    small.setTextColor(Color.BLUE);
-                    top.setTextColor(Color.BLUE);
-                    bottom.setTextColor(Color.BLUE);
-
-                    big.setText(string1);
-                    small.setText(string2);
-                    isVanilla = !isVanilla;
-                } else {
-                    string1 = big.getText().toString();
-                    string2 = small.getText().toString();
-
-                    big.setTextColor(Color.BLUE);
-                    small.setTextColor(Color.BLUE);
-                    top.setTextColor(Color.BLUE);
-                    bottom.setTextColor(Color.BLUE);
-
-                    top.setText(string1);
-                    bottom.setText(string2);
-                    isVanilla = true;
-                }
-
-            }
+        blueTextColor = (Button) findViewById(R.id.text_color_blue);
+        blueTextColor.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 changeTextColor("#0000FF");
+             }
         });
 
-        Button colorChange3 = (Button) findViewById(R.id.change_color_text_id3);
-
-        colorChange3.setOnClickListener(new View.OnClickListener() {
+        whiteTextColor = (Button) findViewById(R.id.text_color_white);
+        whiteTextColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                big.setTextColor(Color.WHITE);
-                small.setTextColor(Color.WHITE);
-                top.setTextColor(Color.WHITE);
-                bottom.setTextColor(Color.WHITE);
-
-                if (isVanilla) {
-                    string1 = top.getText().toString();
-                    string2 = bottom.getText().toString();
-
-                    big.setTextColor(Color.WHITE);
-                    small.setTextColor(Color.WHITE);
-                    top.setTextColor(Color.WHITE);
-                    bottom.setTextColor(Color.WHITE);
-
-                    big.setText(string1);
-                    small.setText(string2);
-                    isVanilla = !isVanilla;
-                } else {
-                    string1 = big.getText().toString();
-                    string2 = small.getText().toString();
-
-                    big.setTextColor(Color.WHITE);
-                    small.setTextColor(Color.WHITE);
-                    top.setTextColor(Color.WHITE);
-                    bottom.setTextColor(Color.WHITE);
-
-                    top.setText(string1);
-                    bottom.setText(string2);
-                    isVanilla = true;
-                }
-
+                changeTextColor("#FFFFFF");
             }
         });
-
 
         //This loads up dialog
         changeImage.setOnClickListener(new View.OnClickListener() {
@@ -441,6 +345,34 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
         toSave.putParcelable("luckyM", uri);
         toSave.putParcelable("luckyM2", uri2);
         toSave.putBoolean("isVanilla", isVanilla);
+    }
+
+    public void changeTextColor(String color) {
+        if (isVanilla) {
+            string1 = top.getText().toString();
+            string2 = bottom.getText().toString();
+
+            big.setTextColor(Color.parseColor(color));
+            small.setTextColor(Color.parseColor(color));
+            top.setTextColor(Color.parseColor(color));
+            bottom.setTextColor(Color.parseColor(color));
+
+            big.setText(string1);
+            small.setText(string2);
+            isVanilla = !isVanilla; // why??
+        } else {
+            string1 = big.getText().toString();
+            string2 = small.getText().toString();
+
+            big.setTextColor(Color.parseColor(color));
+            small.setTextColor(Color.parseColor(color));
+            top.setTextColor(Color.parseColor(color));
+            bottom.setTextColor(Color.parseColor(color));
+
+            top.setText(string1);
+            bottom.setText(string2);
+            isVanilla = true; // why??
+        }
     }
 }
 

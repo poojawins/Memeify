@@ -48,7 +48,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/change_color_text_id"
+                    android:id="@+id/text_color_red"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -56,7 +56,7 @@
                     style="@style/CamButtons"/>
 
                 <Button
-                    android:id="@+id/change_color_text_id2"
+                    android:id="@+id/text_color_blue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -64,7 +64,7 @@
                     style="@style/CamButtons"/>
 
                 <Button
-                    android:id="@+id/change_color_text_id3"
+                    android:id="@+id/text_color_white"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
