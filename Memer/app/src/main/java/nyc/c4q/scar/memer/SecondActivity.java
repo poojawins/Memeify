@@ -30,8 +30,6 @@ import java.util.Date;
  * Created by sufeizhao on 5/31/15.
  */
 public class SecondActivity extends AppCompatActivity implements Serializable {
-
-
     public static Bitmap bm;
     public final String IMAGE_FILE = "image_file";
     private ViewSwitcher viewSwitcher;
@@ -48,10 +46,8 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
     private EditText top, bottom, big, small;
     private String string1, string2;
 
-
     //Quick added features
     private Button colorChange, colorChange2;
-
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -59,14 +55,12 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
         setContentView(R.layout.activity_second);
         preferences = this.getSharedPreferences(IMAGE_FILE, Context.MODE_PRIVATE);
 
-
         //This loads up the last saved boolean for which layout mode was selected
         if (savedInstanceState != null) {
             isVanilla = (boolean) savedInstanceState.get("isVanilla");
             uri = savedInstanceState.getParcelable("uri");
             uri2 = savedInstanceState.getParcelable("uri2");
         }
-
 
         viewSwitcher = (ViewSwitcher) findViewById(R.id.viewswitcher);
         imageView = (ImageView) findViewById(R.id.insert_pic_id);
@@ -81,7 +75,6 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
         top.setMovementMethod(null);
         bottom.setMovementMethod(null);
 
-
         //added this feature last minute.
         colorChange = (Button) findViewById(R.id.change_color_text_id);
 
@@ -93,8 +86,6 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
                 small.setTextColor(Color.RED);
                 top.setTextColor(Color.RED);
                 bottom.setTextColor(Color.RED);
-
-
 
                 if (isVanilla) {
                     string1 = top.getText().toString();
@@ -121,8 +112,6 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
                     bottom.setText(string2);
                     isVanilla = true;
                 }
-
-
 
             }
         });
@@ -220,7 +209,6 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
             @Override
             public void onClick(View v) {
 
-
                 top.setCursorVisible(false);
                 bottom.setCursorVisible(false);
                 View v1 = viewSwitcher.getFocusedChild();
@@ -275,7 +263,6 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
                         startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.app_name)));
                     }
                 }
-
 
             }
         });
@@ -353,7 +340,6 @@ public class SecondActivity extends AppCompatActivity implements Serializable {
         }
         imageView.setImageURI(uri);
         imageView2.setImageURI(uri);
-
 
         //This sets the layout according to which layout mode is selected
         if (isVanilla) {

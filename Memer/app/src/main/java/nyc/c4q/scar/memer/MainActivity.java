@@ -10,14 +10,14 @@ import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
+
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
     private TextToSpeech t1;
     private Intent intent;
     private Uri imageFileUri;
-    private String stringVariable = "file:///sdcard/_pictureholder_id.jpg";
+    private static final String stringVariable = "file:///sdcard/_pictureholder_id.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

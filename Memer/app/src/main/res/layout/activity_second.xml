@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/switch_button"
             android:padding="10px"
-            android:text="SWITCH LAYOUT"
+            android:text="@string/switch_layout"
             android:textColor="#FFF"
             android:textSize="40px" />
 
